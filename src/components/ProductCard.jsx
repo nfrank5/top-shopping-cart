@@ -1,13 +1,7 @@
 import InputQuantity from "./InputQuantity";
-import useProductData from "../hooks/useProductData";
 
+function ProductCard({ product }) {
 
-
-function ProductCard() {
-
-  const { products, error, loading } = useProductData();
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>A network error was encountered</p>;
 
 
   function addToCart(e){
@@ -16,11 +10,11 @@ function ProductCard() {
   }
   
   return (<>
-    <p>{products.title}</p>
-    <p>${products.price}</p>
-    <p>{products.category}</p>
-    <p>{products.description}</p>     
-    <img src={products.image} alt={products.title} />
+    <p>{product.title}</p>
+    <p>${product.price}</p>
+    <p>{product.category}</p>
+    <p>{product.description}</p>     
+    <img src={product.image} alt={product.title} />
    
     <form action="" method="post">
       <InputQuantity></InputQuantity>
