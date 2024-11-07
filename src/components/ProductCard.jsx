@@ -1,12 +1,22 @@
 import InputQuantity from "./InputQuantity";
+import { useOutletContext } from "react-router-dom";
+import { useState } from 'react';
 
 function ProductCard({ product }) {
 
-
+  const [itemCount, setItemCount] = useState(0)
+  const [cartCount, setCartCount, products, error, loading ] = useOutletContext();
 
   function addToCart(e){
     e.preventDefault();
-    console.log("Adding to cart")
+    let copyCartCount = [...cartCount];
+
+    for (let index = 0; index < itemCount; index++) {
+      copyCartCount.push(product.id);
+    }
+    setItemCount(0);
+    setCartCount(copyCartCount)
+    console.log("Adding to cart", product.id, itemCount)
   }
   
   return (<>
@@ -17,7 +27,7 @@ function ProductCard({ product }) {
     <img src={product.image} alt={product.title} />
    
     <form action="" method="post">
-      <InputQuantity></InputQuantity>
+      <InputQuantity itemCount={itemCount} setItemCount={setItemCount}></InputQuantity>
       <button onClick={addToCart}>Add to Cart</button>
     </form>
   </>);

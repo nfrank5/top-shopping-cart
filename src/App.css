@@ -21,3 +21,8 @@
 .footer {
   color: #888;
 }
+
+img {
+  width: 300px;
+  height: inherit;
+}
