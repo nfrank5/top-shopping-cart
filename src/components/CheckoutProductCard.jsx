@@ -1,5 +1,6 @@
 
-import { useState } from 'react';
+import PropTypes from 'prop-types';
+
 
 function CheckoutProductCard({ product, quantity }) {
 
@@ -12,5 +13,10 @@ function CheckoutProductCard({ product, quantity }) {
 
   </>);
 }
+
+CheckoutProductCard.propTypes = {
+  product: PropTypes.object,
+  quantity: PropTypes.number,
+};
 
 export default CheckoutProductCard;

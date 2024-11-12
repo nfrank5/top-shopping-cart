@@ -1,6 +1,7 @@
 import InputQuantity from "./InputQuantity";
 import { useOutletContext } from "react-router-dom";
 import { useState } from 'react';
+import PropTypes from 'prop-types';
 
 function ProductCard({ product }) {
 
@@ -32,5 +33,9 @@ function ProductCard({ product }) {
     </form>
   </>);
 }
+
+ProductCard.propTypes = {
+  product: PropTypes.object,
+};
 
 export default ProductCard;

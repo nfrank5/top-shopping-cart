@@ -1,4 +1,6 @@
 
+import PropTypes from 'prop-types';
+
 function InputQuantity({itemCount, setItemCount}) {
 
   return (
@@ -16,5 +18,11 @@ function InputQuantity({itemCount, setItemCount}) {
 
   
 }
+
+InputQuantity.propTypes = {
+  setItemCount: PropTypes.func,
+  itemCount: PropTypes.number,
+};
+
 
 export default InputQuantity;

@@ -1,5 +1,7 @@
-import reactLogo from '../assets/react.svg'
+import reactLogo from '../assets/react.svg';
 import { Link } from "react-router-dom";
+import PropTypes from 'prop-types';
+
 
 function NavigationBar({cartCount, setCartCount}){
   return (
@@ -15,5 +17,11 @@ function NavigationBar({cartCount, setCartCount}){
   </div>
   )
 }
+
+NavigationBar.propTypes = {
+  setCartCount: PropTypes.func,
+  cartCount: PropTypes.array,
+};
+
 
 export default NavigationBar;

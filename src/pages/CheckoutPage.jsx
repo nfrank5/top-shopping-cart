@@ -7,6 +7,7 @@ function CheckoutPage() {
 
   function finishPurchase(e) {
     e.preventDefault();
+    alert(`Finishing Purchase! You Paid ${totalToPay.toFixed(2)}`)
     setCartCount([]);
     console.log("Finishing Purchase!");
   }
@@ -38,7 +39,7 @@ function CheckoutPage() {
   return (
     <>
       <h1 className="checkout">Checkout Page</h1>
-      <h2>Total to pay: {totalToPay}</h2>
+      <h2>Total to pay: {totalToPay.toFixed(2)}</h2>
       <h3>Details</h3>
       <ul>
         {totalsPerItem.map((item) => (
