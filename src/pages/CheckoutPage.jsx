@@ -1,7 +1,8 @@
-import { useOutletContext } from "react-router-dom";
+import { useOutletContext, useNavigate } from "react-router-dom";
 import CheckoutProductCard from "../components/CheckoutProductCard";
 
 function CheckoutPage() {
+  const navigate = useNavigate();
   const [cartCount, setCartCount, products, error, loading] =
     useOutletContext();
 
@@ -10,6 +11,7 @@ function CheckoutPage() {
     alert(`Finishing Purchase! You Paid ${totalToPay.toFixed(2)}`)
     setCartCount([]);
     console.log("Finishing Purchase!");
+    navigate("/");
   }
 
   function calculateItemsQuantity() {

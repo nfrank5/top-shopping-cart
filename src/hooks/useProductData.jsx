@@ -16,8 +16,8 @@ const useProductData = () => {
       .then((response) => setProducts(response))
       .catch((error) => setError(error))
       .finally(() => setLoading(false));
-  }, []);
-
+  }, [])
+  console.log(products)
   return { products, error, loading };
 };
 

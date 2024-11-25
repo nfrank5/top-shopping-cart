@@ -2,8 +2,7 @@ import reactLogo from '../assets/react.svg';
 import { Link } from "react-router-dom";
 import PropTypes from 'prop-types';
 
-
-function NavigationBar({cartCount, setCartCount}){
+function NavigationBar({cartCount}){
   return (
     <div>
     <a href="https://react.dev" target="_blank">
@@ -12,15 +11,14 @@ function NavigationBar({cartCount, setCartCount}){
     <h2>React Shopping Cart</h2> 
     <button><Link to="/">Home Page</Link></button>
     <button><Link to="shoppage">Shop Page</Link></button>
-    <p>Items currently in the cart {cartCount.length} <button><Link to="checkout">Checkout</Link></button></p>
+    <p role='cart-count'>Items currently in the cart {cartCount} <button><Link to="checkout">Checkout</Link></button></p>
 
   </div>
   )
 }
 
 NavigationBar.propTypes = {
-  setCartCount: PropTypes.func,
-  cartCount: PropTypes.array,
+  cartCount: PropTypes.number,
 };
 
 

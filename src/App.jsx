@@ -13,7 +13,7 @@ function App() {
 
   return (
     <>
-      <NavigationBar cartCount={cartCount} ></NavigationBar>
+      <NavigationBar cartCount={cartCount.length} ></NavigationBar>
       <Outlet context={[cartCount, setCartCount, products, error, loading ]} />
       <Footer></Footer>
     </>
