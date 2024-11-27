@@ -5,8 +5,8 @@ import PropTypes from 'prop-types';
 
 function ProductCard({ product }) {
 
-  const [itemCount, setItemCount] = useState(0)
-  const [cartCount, setCartCount, products, error, loading ] = useOutletContext();
+  const [itemCount, setItemCount] = useState("0")
+  const [cartCount, setCartCount ] = useOutletContext();
 
   function addToCart(e){
     e.preventDefault();
@@ -15,7 +15,7 @@ function ProductCard({ product }) {
     for (let index = 0; index < itemCount; index++) {
       copyCartCount.push(product.id);
     }
-    setItemCount(0);
+    setItemCount("0");
     setCartCount(copyCartCount)
     console.log("Adding to cart", product.id, itemCount)
   }

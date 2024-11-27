@@ -3,7 +3,7 @@ import CheckoutProductCard from "../components/CheckoutProductCard";
 
 function CheckoutPage() {
   const navigate = useNavigate();
-  const [cartCount, setCartCount, products, error, loading] =
+  const [cartCount, setCartCount, products] =
     useOutletContext();
 
   function finishPurchase(e) {

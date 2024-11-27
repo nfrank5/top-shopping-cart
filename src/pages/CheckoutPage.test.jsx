@@ -1,13 +1,11 @@
 import { vi, describe, it, expect } from 'vitest'
-import { render, screen, prettyDOM } from "@testing-library/react";
-import NavigationBar from './NavigationBar';
+import { render, screen } from "@testing-library/react";
 import { MemoryRouter } from "react-router-dom";
+import CheckoutPage from './CheckoutPage';
 
-
-describe("Navigation Bar", () => {
-  it("Shows the title", () => {
-    const renderer = render(<MemoryRouter><NavigationBar cartCount={6} /></MemoryRouter>);
-    //console.log(prettyDOM(renderer.container))
+describe("CheckOut product page", () => {
+  it("Shows the shows the correct quantity per item", () => {
+    const renderer = render(<MemoryRouter><CheckoutPage cartCount={6} /></MemoryRouter>);
     const title = screen.getByText(/React Shopping Cart/i); 
     expect(title).toBeInTheDocument();
   });

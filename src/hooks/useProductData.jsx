@@ -6,18 +6,24 @@ const useProductData = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch("https://fakestoreapi.com/products", { mode: "cors" })
-      .then((response) => {
-        if (response.status >= 400) {
-          throw new Error("server error");
+    async function fetchData() {
+      try {
+        const response = await fetch("https://fakestoreapi.com/products", { mode: "cors" })
+      
+            if (response.status >= 400) {
+              throw new Error("server error");
+            }
+            const data = await response.json();
+            setProducts(data);
+          } catch (err) { 
+            setError(err.message);
+          } finally {
+            setLoading(false);
+          }
         }
-        return response.json();
-      })
-      .then((response) => setProducts(response))
-      .catch((error) => setError(error))
-      .finally(() => setLoading(false));
-  }, [])
-  console.log(products)
+        fetchData();
+      }, [])
+
   return { products, error, loading };
 };
 

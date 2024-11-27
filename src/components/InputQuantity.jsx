@@ -19,7 +19,7 @@ function InputQuantity({itemCount, setItemCount}) {
 
 InputQuantity.propTypes = {
   setItemCount: PropTypes.func,
-  itemCount: PropTypes.number,
+  itemCount: PropTypes.string,
 };
 
 
