@@ -19,7 +19,7 @@ describe('Shop Page', () => {
       category:'category',
       description:'description',
       image:'https://fakestoreapi.com/img/71YXzeOuslL._AC_UY879_.jpg'
-  }],false,false]);
+  }]]);
 
     // Render the component
     render(<ShopPage />);
