@@ -1,17 +1,21 @@
-
+import styles from "./Productcard.module.css";
 import PropTypes from 'prop-types';
 
 
 function CheckoutProductCard({ product, quantity }) {
 
-  return (<>
-    <p>Title: {product.title}</p>
-    <p>Price: ${product.price}</p>
-    <p>Quantity: {quantity}</p>
-    <p>Total: {product.price * quantity}</p>
-    <img src={product.image} alt={product.title} />
+  return (<div className={styles.card}>
+    <div className={styles.description}>
+      <p>Title: {product.title}</p>
+      <p>Price: ${product.price}</p>
+      <p>Quantity: {quantity}</p>
+      <p>Total: {product.price * quantity}</p>
+    </div>
 
-  </>);
+  
+    <img src={product.image} alt={product.title} className={styles.image}/>
+
+  </div>);
 }
 
 CheckoutProductCard.propTypes = {

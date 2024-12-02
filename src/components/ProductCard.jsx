@@ -1,14 +1,14 @@
 import InputQuantity from "./InputQuantity";
 import { useOutletContext } from "react-router-dom";
-import { useState } from 'react';
-import PropTypes from 'prop-types';
+import { useState } from "react";
+import PropTypes from "prop-types";
+import styles from "./Productcard.module.css";
 
 function ProductCard({ product }) {
+  const [itemCount, setItemCount] = useState("0");
+  const [cartCount, setCartCount] = useOutletContext();
 
-  const [itemCount, setItemCount] = useState("0")
-  const [cartCount, setCartCount ] = useOutletContext();
-
-  function addToCart(e){
+  function addToCart(e) {
     e.preventDefault();
     let copyCartCount = [...cartCount];
 
@@ -16,22 +16,29 @@ function ProductCard({ product }) {
       copyCartCount.push(product.id);
     }
     setItemCount("0");
-    setCartCount(copyCartCount)
-    console.log("Adding to cart", product.id, itemCount)
+    setCartCount(copyCartCount);
+    console.log("Adding to cart", product.id, itemCount);
   }
-  
-  return (<>
-    <p>{product.title}</p>
-    <p>${product.price}</p>
-    <p>{product.category}</p>
-    <p>{product.description}</p>     
-    <img src={product.image} alt={product.title} />
-   
-    <form action="" method="post">
-      <InputQuantity itemCount={itemCount} setItemCount={setItemCount}></InputQuantity>
-      <button onClick={addToCart}>Add to Cart</button>
-    </form>
-  </>);
+
+  return (
+    <div className={styles.card}>
+      <div className={styles.description}>
+        <p>{product.title}</p>
+        <p>${product.price}</p>
+        <p>{product.category}</p>
+        <p>{product.description}</p>
+      </div>
+      <img src={product.image} alt={product.title} className={styles.image}/>
+
+      <form action="" method="post" className={styles.form}>
+        <InputQuantity
+          itemCount={itemCount}
+          setItemCount={setItemCount}
+        ></InputQuantity>
+        <button onClick={addToCart}>Add to Cart</button>
+      </form>
+    </div>
+  );
 }
 
 ProductCard.propTypes = {
